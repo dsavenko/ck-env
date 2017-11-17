@@ -149,6 +149,8 @@ def setup(i):
 
     x=os.path.join(plib, pname+'_core'+dext)
     if os.path.isfile(x):
-       env[ep+'_DYNAMIC_CORE_NAME']=pname+'_core'+dext
+       core_lib_file=pname+'_core'+dext
+       cus['extra_dynamic_libs']={'libarm_compute_core': core_lib_file}
+       env[ep+'_DYNAMIC_CORE_NAME']=core_lib_file
 
     return {'return':0, 'bat':s}
